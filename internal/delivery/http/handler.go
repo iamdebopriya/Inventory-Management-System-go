@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"inventory-service-go/internal/domain"
+	"inventory-service-go/internal/service"
 	"inventory-service-go/internal/usecase"
 
 	"github.com/gin-gonic/gin"
@@ -14,10 +15,11 @@ import (
 
 type Handler struct {
 	Usecase *usecase.Usecase
+	Email   *service.EmailService
 }
 
-func NewHandler(u *usecase.Usecase) *Handler {
-	return &Handler{Usecase: u}
+func NewHandler(u *usecase.Usecase, e *service.EmailService) *Handler {
+	return &Handler{Usecase: u, Email: e}
 }
 
 // Root
@@ -83,21 +85,12 @@ func (h *Handler) CreateCategory(c *gin.Context) {
 	for _, cat := range cats {
 		if cat.Name == input.Name {
 			// Async notification
-			go func(cat domain.Category) {
-				time.Sleep(1 * time.Second)
-				println("Notification sent for category:", cat.Name)
-			}(cat)
+			go h.Email.CategoryMail(cat.Name)
 
 			c.JSON(http.StatusCreated, cat)
 			return
 		}
 	}
-
-	// Async notification
-	go func(cat domain.Category) {
-		time.Sleep(1 * time.Second)
-		println("Notification sent for category:", category.Name)
-	}(category)
 
 	c.JSON(http.StatusCreated, category)
 }
@@ -174,10 +167,7 @@ func (h *Handler) CreateProduct(c *gin.Context) {
 	}
 
 	// Goroutine to simulate notification email
-	go func(p domain.Product) {
-		time.Sleep(1 * time.Second)
-		println("Notification sent for product:", p.ProductName)
-	}(created)
+	go h.Email.ProductMail(created.ProductName)
 
 	// Return created product data
 	c.JSON(http.StatusCreated, gin.H{
@@ -261,10 +251,7 @@ func (h *Handler) CreateOrder(c *gin.Context) {
 	}
 
 	// Async notification
-	go func(o domain.Order) {
-		time.Sleep(1 * time.Second)
-		println("Notification sent for order product ID:", o.ProductID)
-	}(created)
+	go h.Email.OrderMail(created.Product.ProductName, created.Quantity)
 
 	c.JSON(http.StatusCreated, created)
 }
