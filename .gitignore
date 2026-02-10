@@ -1,0 +1,45 @@
+# Go build artifacts
+/bin/
+/obj/
+/out/
+/*.exe
+/*.exe~
+/*.dll
+/*.so
+/*.dylib
+
+# Test binary, coverage, and profiling
+*.test
+*.out
+*.cover
+*.prof
+
+# Vendor dependencies
+/vendor/
+
+# Go module files (optional, include if you don’t want to track)
+# go.sum
+# go.mod
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node / front-end stuff if any (ignore if not used)
+node_modules/
+dist/
