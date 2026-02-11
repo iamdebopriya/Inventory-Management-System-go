@@ -14,7 +14,8 @@ CREATE TABLE products (
     price DECIMAL(10,2) NOT NULL,
     quantity INT NOT NULL CHECK (quantity >= 0),
     category_id UUID REFERENCES categories(id),
-    is_active BOOLEAN DEFAULT TRUE
+    is_active BOOLEAN DEFAULT TRUE,
+    description TEXT DEFAULT NULL
 );
 -- Create orders table
 CREATE TABLE orders (
