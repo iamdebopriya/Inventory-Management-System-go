@@ -1,12 +1,13 @@
 package main
 
 import (
-	"inventory-service-go/database"
-	"inventory-service-go/internal/delivery/http"
-	"inventory-service-go/internal/repository"
-	"inventory-service-go/internal/service"
-	"inventory-service-go/internal/usecase"
 	"log"
+
+	"github.com/iamdebopriya/Inventory-Management-System-go/database"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/delivery/http"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/repository"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/service"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/usecase"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"

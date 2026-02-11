@@ -1,4 +1,4 @@
-module inventory-service-go
+module github.com/iamdebopriya/Inventory-Management-System-go
 
 go 1.25.7
 

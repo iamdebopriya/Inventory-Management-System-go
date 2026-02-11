@@ -2,8 +2,9 @@ package repository
 
 import (
 	"errors"
-	"inventory-service-go/database"
-	"inventory-service-go/internal/domain"
+
+	"github.com/iamdebopriya/Inventory-Management-System-go/database"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/domain"
 
 	"gorm.io/gorm"
 )
