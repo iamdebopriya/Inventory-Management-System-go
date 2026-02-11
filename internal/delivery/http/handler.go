@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"inventory-service-go/internal/domain"
-	"inventory-service-go/internal/service"
-	"inventory-service-go/internal/usecase"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/domain"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/service"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/usecase"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

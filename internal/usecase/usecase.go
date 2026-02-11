@@ -2,8 +2,9 @@ package usecase
 
 import (
 	"errors"
-	"inventory-service-go/internal/domain"
-	"inventory-service-go/internal/repository"
+
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/domain"
+	"github.com/iamdebopriya/Inventory-Management-System-go/internal/repository"
 )
 
 type Usecase struct {
